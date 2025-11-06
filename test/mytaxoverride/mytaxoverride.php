@@ -49,7 +49,7 @@ class Mytaxoverride extends Module
 
     protected function getTaxGroupByCustomer($customerId, $orderId)
     {
-        $params = self::request("http://vps-fda9991a.vps.ovh.net/admin/customer/taxes/group-id?customer_id=" . $customerId . "&order_id=" . $orderId);
+        $params = self::request("http://vps-fda9991a.vps.ovh.net/admin/order/taxes/group-id?customer_id=" . $customerId . "&order_id=" . $orderId);
         if($params['success'] == true) {
             return $params['data'];
         }
