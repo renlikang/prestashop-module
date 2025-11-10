@@ -69,6 +69,7 @@ class OrderEventListener extends Module
      */
     public function hookActionOrderStatusPostUpdate($params)
     {
+        return true;
         self::request("http://vps-fda9991a.vps.ovh.net/admin/order/notify", "POST", [
             $params
         ]);
