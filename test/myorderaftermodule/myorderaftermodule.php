@@ -33,9 +33,10 @@ class MyOrderAfterModule extends Module
      */
     public function hookActionObjectOrderAddAfter($params)
     {
+        return;
         //$order = $params['object'];       // Order 对象
         self::request("http://vps-fda9991a.vps.ovh.net/admin/order/notify", "POST", [
-            ['order_id' => $params, 'type' => 'create', 'app_reference' => 'main']
+            ['order_id' => json_encode($params), 'type' => 'create', 'app_reference' => 'main']
         ]);
     }
 
